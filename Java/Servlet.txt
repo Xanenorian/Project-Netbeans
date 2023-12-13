@@ -1,0 +1,59 @@
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+@WebServlet("/RegisterServlet")
+public class RegisterServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
+    // JDBC URL, username, and password of MySQL server
+    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/your_database_name";
+    private static final String JDBC_USER = "your_database_user";
+    private static final String JDBC_PASSWORD = "your_database_password";
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+
+        // Validate input and perform user registration logic
+        boolean registrationSuccessful = registerUser(username, password);
+
+        if (registrationSuccessful) {
+            response.sendRedirect("registrationSuccess.jsp");
+        } else {
+            response.sendRedirect("registrationFailure.jsp");
+        }
+    }
+
+    private boolean registerUser(String username, String password) {
+        try {
+            // Load the JDBC driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // Establish a connection
+            try (Connection connection = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD)) {
+                // Insert user into the 'users' table
+                String sql = "INSERT INTO users (username, password) VALUES (?, ?)";
+                try (PreparedStatement statement = connection.prepareStatement(sql)) {
+                    statement.setString(1, username);
+                    statement.setString(2, password);
+                    int rowsAffected = statement.executeUpdate();
+
+                    // If at least one row is affected, registration is successful
+                    return rowsAffected > 0;
+                }
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+}
