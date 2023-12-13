@@ -1,15 +1,69 @@
-<!DOCTYPE html> 
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logout</title>
-    <link rel="stylesheet" type="text/css" href="banner.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #3498db;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        .back-to-home {
+            text-align: center;
+        }
+
+        .back-to-home a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-to-home a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <jsp:include page="banner.jsp" />
+    <header>
+        <h1>Logout</h1>
+    </header>
 
     <div class="content">
-        <h2>Logout</h2>
-        <p>Thank you for using our website. You have been successfully logged out.</p>
+        <h2>Thank You for Using Our Website</h2>
+        <p>You have been successfully logged out. We hope to see you again soon!</p>
+
+        <div class="back-to-home">
+            <a href="index.html">Back to Home</a>
+        </div>
     </div>
 </body>
 </html>
