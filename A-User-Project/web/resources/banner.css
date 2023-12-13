@@ -1,0 +1,28 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Dec 12, 2023, 8:13:04 PM
+    Author     : brend
+*/
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.banner {
+    background-color: #3498db; /* Choose your preferred background color */
+    color: #ffffff; /* Choose your preferred text color */
+    text-align: center;
+    padding: 10px;
+}
+
+.content {
+    /* Your styles for elements with class "content" go here */
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f5f5f5;
+}
