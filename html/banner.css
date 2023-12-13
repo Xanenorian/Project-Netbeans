@@ -1,0 +1,12 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.banner {
+    background-color: #3498db; /* Choose your preferred background color */
+    color: #ffffff; /* Choose your preferred text color */
+    text-align: center;
+    padding: 10px;
+}
