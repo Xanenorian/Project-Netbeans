@@ -1,27 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Login Form</title>
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            color: #3498db;
+        }
+
+        table {
+            margin: 20px auto;
+        }
+
+        td {
+            padding: 8px;
+        }
+
+        input {
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            background-color: #3498db;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <form method="post" action="j_security_check">
         <h2>Hello, please log in:</h2>
-        <form method="post" action="j_security_check">
-            <table role="presentation">
-                <tr>
-                    <td>Please type your user name: </td>
-                    <td><input type="text" name="j_username" 
-                               size="20"/></td>
-                </tr>
-                <tr>
-                    <td>Please type your password: </td>
-                    <td><input type="password" name="j_password" 
-                               size="20"/></td>
-                </tr>
-            </table>
-            <p></p>
-            <input type="submit" value="Submit"/>
-            &nbsp;
-            <input type="reset" value="Reset"/>
-        </form>
-    </body>
+        <table role="presentation">
+            <tr>
+                <td>Please type your user name: </td>
+                <td><input type="text" name="j_username" size="20" required /></td>
+            </tr>
+            <tr>
+                <td>Please type your password: </td>
+                <td><input type="password" name="j_password" size="20" required /></td>
+            </tr>
+        </table>
+        <p></p>
+        <input type="submit" value="Submit" />
+        &nbsp;
+        <input type="reset" value="Reset" />
+    </form>
+</body>
 </html>
